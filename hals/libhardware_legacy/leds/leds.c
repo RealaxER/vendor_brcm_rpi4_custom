@@ -14,6 +14,15 @@ pthread_mutex_t led_list_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 led_t *led_list_head = NULL;
 
+void __attribute__ ((constructor)) leds_loaded() {
+    ALOGD("Legacy HAL Leds Module: Loaded");
+}
+
+void __attribute__ ((destructor )) leds_unloaded() {
+    ALOGD("Legacy HAl Leds Module: Unloaded");
+}
+
+
 led_t* leds_init(const char *chipname, unsigned int line_num, const char *led_id) {
 
     led_t *new_led = (led_t *)malloc(sizeof(led_t));

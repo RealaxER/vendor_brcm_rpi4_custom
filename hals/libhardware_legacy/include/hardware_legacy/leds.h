@@ -5,6 +5,7 @@
 #include <pthread.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <utils/Log.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,7 +13,7 @@ extern "C" {
 
 #define LEDS_ERR -1
 #define LEDS_OK 1
-#define LEDS_LOG(__va_args__) printf(__va_args__)
+#define LEDS_LOG(__va_args__) ALOGD(__va_args__)
 typedef struct led {
     struct gpiod_chip *chip;
     struct gpiod_line *line;
