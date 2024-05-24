@@ -15,16 +15,11 @@ namespace rpi {
     private:
         std::string name;
         unsigned char val;
-        std::unique_ptr<led_t> led;
-
     public:
         LedController_t(const std::string& chipname, unsigned int line_num, const std::string& name) : name(name) {
-            led = std::unique_ptr<led_t>(leds_init(chipname.c_str(), line_num, name.c_str()));
-            if (!led) {
-                throw std::runtime_error("Failed to initialize LED");
-            }
+            leds_init(chipname.c_str(), line_num, name.c_str());
         }
-
+        
         int requestOutput() {
             if (leds_request_output(this->name.c_str(), this->val)) {
                 return LED_JNI_OK;
@@ -32,22 +27,30 @@ namespace rpi {
             return LED_JNI_ERR;
         }
 
-        int setOutput(unsigned char val) {
-            if (leds_set_output(this->name.c_str(), val)) {
-                this->val = val;
+        int setOutput(unsigned char value) {
+            if (leds_set_output(this->name.c_str(), value)) {
+                this->val = value;
                 return LED_JNI_OK;
             }
             return LED_JNI_ERR;
         }
 
-        int setBlinkOutput(unsigned int time) {
-            if (leds_set_tim_output(this->name.c_str(), time)) {
+        int setBlinkLed(unsigned int delay) {
+            if (leds_set_tim_output(this->name.c_str(), delay)) {
                 return LED_JNI_OK;
             }
             return LED_JNI_ERR;
         }
-        int stopBlink(void) {
+
+        int setStopBlink(void) {
             if (leds_stop_blink(this->name.c_str())) {
+                return LED_JNI_OK;
+            }
+            return LED_JNI_ERR;
+        }
+        
+        int close(void) {
+            if (led_remove_by_id(this->name.c_str())) {
                 return LED_JNI_OK;
             }
             return LED_JNI_ERR;

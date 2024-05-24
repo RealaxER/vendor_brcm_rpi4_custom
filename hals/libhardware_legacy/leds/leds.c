@@ -122,6 +122,7 @@ int led_remove_by_id(const char *led_id) {
     return LEDS_ERR;
 }
 
+
 int leds_request_output(const char *id, unsigned char default_val) {
     led_t *led = led_find_by_id(id);
     if (led) {
@@ -157,7 +158,6 @@ void* blink_led(void* args) {
 }
 
 int leds_set_tim_output(const char *id, unsigned int frequency) {
-    pthread_mutex_lock(&led_list_mutex);
 
     led_t *led = led_find_by_id(id);
     if (led) {
@@ -169,18 +169,15 @@ int leds_set_tim_output(const char *id, unsigned int frequency) {
         }
         return LEDS_OK;
     }
-    pthread_mutex_unlock(&led_list_mutex);
     return LEDS_ERR;
 }
 
 int leds_stop_blink(const char *id) {
-    pthread_mutex_lock(&led_list_mutex);
     led_t *led = led_find_by_id(id);
     if (led) {
         led->should_blink = 0;
         pthread_join(led->blink_thread, NULL);
         return LEDS_OK;
     }
-    pthread_mutex_unlock(&led_list_mutex);
     return LEDS_ERR;
 }

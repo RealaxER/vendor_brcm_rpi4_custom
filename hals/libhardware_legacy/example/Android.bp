@@ -1,0 +1,19 @@
+cc_binary {
+    name: "led",
+    srcs: [
+        "led.cpp"
+    ],
+    
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+        "-Wthread-safety",
+        "-fexceptions",
+    ],
+
+    shared_libs: [
+        "libleds"
+    ],
+    header_libs: ["libhardware_legacy_rpi_headers"],
+}
