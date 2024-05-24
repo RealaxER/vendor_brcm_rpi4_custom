@@ -1,0 +1,42 @@
+cc_library_shared {
+    name: "libservices.rpi.core",
+    defaults: ["libservices.rpi.core-libs"],
+
+    cpp_std: "c++2a",
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+        "-Wthread-safety",
+        "-fexceptions",
+    ],
+
+    srcs: [
+        "leds/com_android_rpi_gpio_LedController.cpp",
+        "loadJni.cpp",
+    ],
+
+    include_dirs: [
+        "frameworks/base/libs/hwui/apex/include",
+        "./frameworks/base/core/jni/include/",
+        "./libnativehelper/include/",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libleds",
+    ],
+
+    header_libs: [
+        "jni_headers",
+        "libhardware_legacy_rpi_headers",
+    ],
+}
+
+cc_defaults {
+    name: "libservices.rpi.core-libs",
+    shared_libs: [
+        "liblog",
+        "libleds",
+    ],
+}
