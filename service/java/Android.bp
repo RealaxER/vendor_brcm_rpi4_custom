@@ -1,0 +1,12 @@
+android_app {
+    name: "led_controller_app",
+    srcs: ["Main.java"],
+    static_libs: ["ledcontroller"],
+    sdk_version: "current",
+    vendor: true,
+    dex_preopt: {
+        app_image: true,
+    },
+    certificate: "platform",
+    manifest: "AndroidManifest.xml",
+}

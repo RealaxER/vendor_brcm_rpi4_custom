@@ -1,21 +1,27 @@
+package com.android.rpi.gpio;
+
 public class LedController {
 
     private static native void led_native_init(String chipname, int line_num, String ledname);
     private static native int led_native_requestOutput();
     private static native int led_native_setOutput(byte value);
 
-    static {
-        System.loadLibrary("libservices.rpi.core");
+    // Khởi tạo LedController
+    public LedController(String chipname, int line_num, String ledname) {
+        led_native_init(chipname, line_num, ledname);
     }
 
-    public static void main(String[] args) {
-        // Perform LED initialization
-        led_native_init("gpiochip0", 20, "LED1");
+    // Yêu cầu đầu ra cho đèn
+    public int requestOutput() {
+        return led_native_requestOutput();
+    }
 
-        int requestResult = led_native_requestOutput();
-        System.out.println("Request Output Result: " + requestResult);
+    // Thiết lập giá trị đầu ra cho đèn
+    public int setOutput(byte value) {
+        return led_native_setOutput(value);
+    }
 
-        int setResult = led_native_setOutput((byte) 1);
-        System.out.println("Set Output Result: " + setResult);
+    static {
+        System.loadLibrary("libservices.rpi.core");
     }
 }
