@@ -1,0 +1,20 @@
+cc_library_shared {
+    name: "led_conventional.default",
+    relative_install_path: "hw",
+    srcs: [
+        "led_conventional.c"
+    ],
+    cflags: [
+        "-Wall", 
+        "-Werror"
+    ],
+    header_libs: [
+        "libhardware_headers",
+        "libhardware_conventional_rpi_headers"
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libgpiod",
+    ],
+}

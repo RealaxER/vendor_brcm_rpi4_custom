@@ -1,0 +1,20 @@
+cc_binary {
+    name: "exam_led_conventional",
+    srcs: [
+        "exam_led_conventional.c"
+    ],
+    header_libs: [
+        "libhardware_headers",
+        "libhardware_conventional_rpi_headers"
+    ],
+    shared_libs: [
+        "liblog",
+        "libhardware",
+        "libgpiod"
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wextra",
+    ],
+}

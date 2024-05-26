@@ -6,4 +6,6 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),rpi4)
 
+include  vendor/brcm/rpi4/binder/Android.mk
+
 endif

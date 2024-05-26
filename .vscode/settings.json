@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "led_conventional.h": "c",
+        "stdio.h": "c",
+        "thread": "c",
+        "iostream": "cpp",
+        "string.h": "c",
+        "binder.h": "c",
+        "stdlib.h": "c",
+        "string": "cpp",
+        "new": "cpp"
+    }
+}

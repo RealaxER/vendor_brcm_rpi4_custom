@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/bhien/aosp/aosp12/hardware/libhardware_legacy/include",
+                "/home/bhien/aosp/aosp12/hardware/libhardware/include",
+                "/home/bhien/aosp/aosp12/prebuilts/vndk/v31/arm64/include/system/logging/liblog/include_vndk",
+                "/home/bhien/aosp/aosp12/prebuilts/vndk/v31/arm64/include/system/core/libutils/include",
+                "/home/bhien/aosp/aosp12/prebuilts/vndk/v31/arm64/include/system/libhidl/transport/include/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c99",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

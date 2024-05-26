@@ -1,0 +1,7 @@
+package android.hardware.rpi.led@1.0;
+
+interface ILed {
+    init(string chipname, uint8_t line, string id) generates (int8_t ret);
+    requestOuput(string id) generates (int8_t ret);
+    setOuput(string id, uint8_t val);
+};
