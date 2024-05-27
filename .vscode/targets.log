@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 26 20:25:43 2024
+# Make data base, printed on Mon May 27 22:33:30 2024
 
 # Variables
 
@@ -47,7 +47,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:46578
+JOURNAL_STREAM = 8:50651
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -71,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /usr/share/code/code
 # environment
-MANAGERPID = 1477
+MANAGERPID = 1783
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -85,7 +85,7 @@ PATH = /opt/gcc-arm-8.2-2018.08-x86_64-arm-linux-gnueabihf/bin:/home/bhien/.loca
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/asus:@/tmp/.ICE-unix/1954,unix/asus:/tmp/.ICE-unix/1954
+SESSION_MANAGER = local/asus:@/tmp/.ICE-unix/1967,unix/asus:/tmp/.ICE-unix/1967
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -93,7 +93,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = f51c64a900c1444fa484151dae6eaf8e
+INVOCATION_ID = 0826333ed90044f48e1523049c21b00a
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -101,7 +101,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 196216
+GIO_LAUNCHED_DESKTOP_FILE_PID = 69719
 # automatic
 %F = $(notdir $%)
 # environment
@@ -111,7 +111,7 @@ PWD = /home/bhien/aosp/aosp12/vendor/brcm/rpi4
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1916
+SSH_AGENT_PID = 1929
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -221,7 +221,7 @@ LC_ADDRESS = vi_VN
 # environment
 LANG = C
 # environment
-VSCODE_PID = 196216
+VSCODE_PID = 69719
 # variable set hash-table stats:
 # Load=105/1024=10%, Rehash=0, Collisions=18/127=14%
 
@@ -288,8 +288,7 @@ GNUmakefile:
 
 # strcache performance: lookups = 23 / hit rate = 13%
 # hash-table stats:
- 
 # Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
-# Finished Make data base on Sun May 26 20:25:43 2024
+# Finished Make data base on Mon May 27 22:33:30 2024
 
  
