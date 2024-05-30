@@ -1,12 +1,22 @@
-// android_app {
-//     name: "led_controller_app",
-//     srcs: ["Main.java"],
-//     static_libs: ["ledcontroller"],
-//     sdk_version: "current",
-//     vendor: true,
-//     dex_preopt: {
-//         app_image: true,
-//     },
-//     certificate: "platform",
-//     manifest: "AndroidManifest.xml",
-// }
+java_library {
+    name: "rpi-gpio",
+    sdk_version: "current",
+    srcs: [
+        ":rpi-gpio-src",
+        ":rpi-system-src"
+    ],
+}
+
+filegroup {
+    name: "rpi-gpio-src",
+    srcs: [
+        "com/android/rpi/gpio/**/*.java",
+    ],
+}
+
+filegroup {
+    name: "rpi-system-src",
+    srcs: [
+        "com/android/rpi/RpiService.java",
+    ],
+}
