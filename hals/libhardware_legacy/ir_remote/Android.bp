@@ -6,7 +6,8 @@ cc_library_shared {
 
   cflags: [
       "-Wall", 
-      "-Werror"
+      "-Werror",
+      "-Wno-unused-parameter"
   ],
 
   header_libs: ["libhardware_legacy_rpi_headers"],

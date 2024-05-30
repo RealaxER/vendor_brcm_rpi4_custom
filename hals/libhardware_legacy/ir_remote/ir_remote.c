@@ -10,19 +10,16 @@
 #include <gpiod.h>
 #include <unistd.h>
 
-extern void ir_push(char c);
-
 struct IrRemote {
     pthread_t ir_id;
     struct gpiod_chip *chip;
     struct gpiod_line *line;
     uint8_t val;
-}
+};
 
 struct IrRemote ir_remote = {
     .ir_id = 0,
     .val = 0,
-    .ir_mutex = PTHREAD_MUTEX_INITIALIZER,
 };
 
 
@@ -36,6 +33,10 @@ void __attribute__ ((constructor)) leds_loaded() {
 
 void __attribute__ ((destructor )) leds_unloaded() {
     ALOGD("Legacy HAl IR REMOTE Module: Unloaded");
+}
+
+void ir_push(char c) {
+    ALOGD("REMOTE KEY: %c\n", c);
 }
 
 void convert_code (uint32_t code)
@@ -117,6 +118,7 @@ void convert_code (uint32_t code)
 
 
 void* ir_remote_handle(void* arg) {
+    IR_LOG("==============IR REMOTE START========\n");
     while(1) {
         while (ir_get_input());
         uint32_t code = 0;
@@ -151,27 +153,28 @@ void* ir_remote_handle(void* arg) {
         }
         convert_code(code);
     }   
-    return NULL;
+     
+     return NULL;
 }
 
 int ir_init(const char *chipname, unsigned int line_num, const char *name) {
     ir_remote.chip =  gpiod_chip_open_by_name(chipname);
-    if (!ir_remote->chip) {
+    if (!ir_remote.chip) {
         IR_LOG("ir remote open chip fail");
         return -1;
     }
     
-    ir_remote.line = gpiod_chip_get_line(ir_remote.chip, line_num){}
+    ir_remote.line = gpiod_chip_get_line(ir_remote.chip, line_num);
     if (!ir_remote.line) {
         IR_LOG("ir get line faisw");
-        gpiod_chip_close(ir_remote->chip);
+        gpiod_chip_close(ir_remote.chip);
         return -1;
     }
 
     ir_remote.val = gpiod_line_request_input(ir_remote.line, name);
     if(ir_remote.val < 0){
         IR_LOG("ir get value fail");
-        gpiod_chip_close(ir_remote->chip);
+        gpiod_chip_close(ir_remote.chip);
         return -1;
     }
 
@@ -179,4 +182,6 @@ int ir_init(const char *chipname, unsigned int line_num, const char *name) {
         perror("Error creating thread ir remote");
         return -1;
     }
+
+    return 0;
 }

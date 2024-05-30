@@ -13,8 +13,10 @@
 extern "C" {
 #endif
 
-#define IR_LOG(__va_args__) ALOGD(__va_args__)
 
+#define IR_LOG(__va_args__) ALOGD(__va_args__)
+/* implement this */
+// extern void ir_push(char c);
 int ir_init(const char *chipname, unsigned int line_num, const char *name);
 
 #ifdef __cplusplus
