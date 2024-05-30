@@ -8,6 +8,13 @@
         "binder.h": "c",
         "stdlib.h": "c",
         "string": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "unistd.h": "c",
+        "leds.h": "c",
+        "types.h": "c",
+        "ir_remote.h": "c",
+        "algorithm": "c",
+        "fcntl.h": "c",
+        "gpiod.h": "c"
     }
 }

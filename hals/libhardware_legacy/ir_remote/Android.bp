@@ -1,0 +1,19 @@
+cc_library_shared {
+  name: "libir",
+  srcs: [
+      "ir_remote.c"
+  ],
+
+  cflags: [
+      "-Wall", 
+      "-Werror"
+  ],
+
+  header_libs: ["libhardware_legacy_rpi_headers"],
+
+  shared_libs: [
+      "liblog",
+      "libgpiod",
+      "libcutils",
+  ],
+}
